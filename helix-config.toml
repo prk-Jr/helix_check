@@ -1,0 +1,95 @@
+theme = "dracula_at_night"
+
+[editor]
+line-number = "absolute"
+mouse = true
+idle-timeout=5
+auto-completion=true
+auto-save=true
+auto-format=true
+auto-info=true
+text-width=80
+gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
+soft-wrap.enable = true
+soft-wrap.max-indent-retain=80
+preview-completion-insert = false
+
+[editor.file-picker]
+max-depth = 6
+
+
+[editor.statusline]
+left = ["mode", "spinner", "file-modification-indicator", "read-only-indicator"]
+center = ["file-name"]
+right = ["diagnostics", "register", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+enable=true
+auto-signature-help=true
+display-messages = true
+display-inlay-hints=true
+display-signature-help-docs=true
+snippets=true
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
+# At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
+[keys.normal]
+"C-/" = "toggle_comments"
+C-s = ":w!" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
+C-o = ":open ~/.config/helix/config.toml" # Maps Ctrl-o to opening of the helix config file
+a = "move_char_left" # Maps the 'a' key to the move_char_left command
+"C-S-esc" = "extend_line" # Maps Ctrl-Shift-Escape to extend_line
+g = { a = "code_action" } # Maps `ga` to show possible code actions
+S-A-down = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "extend_to_line_bounds" ]
+S-A-up = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "extend_to_line_bounds" ]
+C-z = "undo"
+C-y = "redo"
+C-q = ":quit"
+C-w = "goto_last_accessed_file"
+C-x = [":clipboard-yank", "delete_selection"]
+C-ret = "goto_definition"
+C-e = "file_picker"
+C-space = "code_action"
+A-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "extend_to_line_bounds"]
+A-down = ["extend_to_line_bounds", "delete_selection", "paste_after", "extend_to_line_bounds"]
+C-right = "hover"
+C-c = ":clipboard-yank"
+C-v =":clipboard-paste-before"
+S-right =["select_mode", "expand_selection" ]
+S-left = ["select_mode", "expand_selection" ]
+C-t = ":sh start"
+C-f = "global_search"
+
+
+[keys.insert]
+"A-x" = "normal_mode"     # Maps Alt-X to enter normal mode
+j = { k = "normal_mode" }
+S-A-down = ["normal_mode", "extend_to_line_bounds", "yank", "open_below", "replace_with_yanked", "extend_to_line_bounds" ]
+S-A-up = ["normal_mode", "extend_to_line_bounds", "yank", "open_above", "replace_with_yanked", "extend_to_line_bounds" ]
+C-y = "redo"
+C-z = "undo"
+C-q = ":quit"
+C-w = "goto_last_accessed_file"
+C-ret = "goto_definition"
+C-e = "file_picker"
+C-s = ":w!"
+C-space = "code_action"
+C-right = "hover"
+A-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "extend_to_line_bounds"]
+A-down = ["extend_to_line_bounds", "delete_selection", "paste_after", "extend_to_line_bounds"]
+S-right =["select_mode" ,"expand_selection" ] 
+S-left = ["select_mode" ,"expand_selection" ]
+C-v =":clipboard-paste-before"
+C-c = ":clipboard-yank"
+C-t = ":sh start"
+"C-/" = "toggle_comments"
+C-f = "global_search"
+C-x = [":clipboard-yank", "delete_selection"]
